@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fronted-depl
+spec:
+  selector:
+    matchLabels:
+      app: fronted-depl
+  template:
+    metadata:
+      labels:
+        app: fronted-depl
+    spec:
+      containers:
+      - name: fronted-depl
+        image: nginx:alpine
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "50m"
+        ports:
+        - containerPort: 80
