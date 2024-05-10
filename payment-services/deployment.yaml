@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-services-depl
+spec:
+  selector:
+    matchLabels:
+      app: payment-services-depl
+  template:
+    metadata:
+      labels:
+        app: payment-services-depl
+    spec:
+      containers:
+      - name: payment-services-depl
+        image: nginx:alpine
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "50m"
+        ports:
+        - containerPort: 80
