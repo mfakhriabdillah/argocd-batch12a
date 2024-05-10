@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-depl
+  template:
+    metadata:
+      labels:
+        app: backend-depl
+    spec:
+      containers:
+      - name: backend-depl
+        image: nginx:alpine
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "50m"
+        ports:
+        - containerPort: 80

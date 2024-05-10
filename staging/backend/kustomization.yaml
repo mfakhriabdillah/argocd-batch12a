@@ -1,0 +1,7 @@
+resources:
+  - ../../bases/backend
+
+patchesStrategicMerge:
+  - patch.yaml
+
+namespace: stag-backend
